@@ -39,5 +39,5 @@ ENTRYPOINT [ "/home/script/entrypoint.sh" ]
 
 EXPOSE 56192
 
-CMD /bin/bash streamlink https://www.youtube.com/watch?v=ssuM6NJQ2no best --player-external-http --player-external-http-continuous=1 --player-external-http-port=56192
-#CMD /bin/bash ./home/script/streamlink-recorder.sh ${streamOptions} ${streamLink} ${streamQuality} ${streamName}
+#CMD /bin/bash streamlink https://www.youtube.com/watch?v=ssuM6NJQ2no best --player-external-http --player-external-http-continuous=1 --player-external-http-port=56192
+CMD /bin/bash ./home/script/streamlink-recorder.sh ${streamOptions} ${streamLink} ${streamQuality} ${streamName}
