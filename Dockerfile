@@ -32,12 +32,15 @@ RUN mkdir /home/plugins
 
 COPY ./streamlink-recorder.sh /home/script/
 COPY ./entrypoint.sh /home/script
+COPY ./streamlink.sh /home/script/
 
 RUN ["chmod", "+x", "/home/script/entrypoint.sh"]
+RUN ["chmod", "+x", "/home/script/streamlink.sh"]
 
 ENTRYPOINT [ "/home/script/entrypoint.sh" ]
 
 EXPOSE 56192
 
-CMD /bin/bash /usr/local/bin/streamlink https://www.youtube.com/watch?v=ssuM6NJQ2no best --player-external-http --player-external-http-continuous=1 --player-external-http-port=56192
+#CMD /bin/bash /usr/local/bin/streamlink https://www.youtube.com/watch?v=ssuM6NJQ2no best --player-external-http --player-external-http-continuous=1 --player-external-http-port=56192
 #CMD /bin/bash ./home/script/streamlink-recorder.sh ${streamOptions} ${streamLink} ${streamQuality} ${streamName}
+CMD /bin/bash ./home/script/streamlink.sh
